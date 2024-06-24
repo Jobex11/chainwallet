@@ -12,22 +12,20 @@ const Navbar = () => {
   return (
     <div className="p-3 text-gray-400 text-lg flex items-center justify-between border-b border-gray-500 shadow-sm">
       <div className="flex flex-row gap-2">
-        <div className="rounded-full border border-1">
-          h
-          {/*
+        <div className="w-12 h-12 rounded-full border border-1 border-gray-700  flex justify-center items-center bg-yellow-700 p-1">
           <Image
-            src="https://th.bing.com/th/id/OIP.QjynegEfQVPq5kIEuX9fWQHaFj?rs=1&pid=ImgDetMain"
+            src="/images/man.png"
             alt="Example Image"
             width={100}
-            height={50}
-            layout="responsive" />
-          */}
+            height={100}
+            layout="responsive"
+          />
         </div>
         <div>
-          <section className="flex">
-            <h1 className="text-gray-100">0x123..5678</h1>
-            <ContentCopyIcon className="" />
-          </section>
+          <div className="flex hover:text-yellow-700 cursor-pointer">
+            <h1 className="text-gray-100 hover:text-yellow-700">0x123..5678</h1>
+            <ContentCopyIcon />
+          </div>
           <section className="text-sm">Morphius</section>
         </div>
       </div>

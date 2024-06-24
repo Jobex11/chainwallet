@@ -16,13 +16,13 @@ const BodySection = () => {
         <h1 className="text-gray-200 text-3xl gap-0">$ 0.00</h1>
         <h3 className="text-gray-400 text-base">0.0000</h3>
         {/*this should be a Button not a Div*/}
-        <div className="flex justify-center items-center text-lg text-gray-200 bg-pink-600 gap-2  border border-1 border-gray-400 rounded-full shadow-sm shadow-gray-200 py-2 px-4 cursor-pointer hover:bg-pink-700">
+        <div className="my-1 flex justify-center items-center text-lg text-gray-200 bg-pink-600 gap-2  border border-1 border-gray-400 rounded-full shadow-sm shadow-gray-200 py-2 px-4 cursor-pointer hover:bg-pink-700">
           <span>Swap</span>
           <SwapHorizIcon />
         </div>
       </div>
       {/* Refer and Earn */}
-      <div className="flex flex-row justify-between rounded-xl border border-1 border-gray-700 w-full text-pink-800 py-2 px-3 cursor-pointer">
+      <div className="mb-1 flex flex-row justify-between rounded-xl border border-1 border-gray-700 w-full text-pink-800 py-2 px-3 cursor-pointer">
         <div className="flex flex-row gap-2">
           <CardGiftcardIcon />
           <h3 className="text-gray-200">Refer friends and Earn</h3>

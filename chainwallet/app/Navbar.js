@@ -22,14 +22,16 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <div className="flex hover:text-yellow-700 cursor-pointer">
-            <h1 className="text-gray-100 hover:text-yellow-700">0x123..5678</h1>
+          <div className="flex hover:text-yellow-700 cursor-pointer text-sm">
+            <h1 className="text-gray-100 text-base hover:text-yellow-700">
+              0x123..5
+            </h1>
             <ContentCopyIcon />
           </div>
           <section className="text-sm">Morphius</section>
         </div>
       </div>
-      <div className="flex gap-4 text-bold">
+      <div className="flex gap-2 text-bold">
         <Button className="rounded-2xl bg-gray-800 opacity-1 text-sm ">
           <div className="flex justify-center gap-1 text-yellow-500 text-bold">
             <LockOpenIcon fontSize="small" />

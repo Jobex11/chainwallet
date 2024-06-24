@@ -8,7 +8,7 @@ import {} from "@mui/material";
 import Image from "next/image";
 const BodySection = () => {
   return (
-    <div className="flex flex-col items-center p-4">
+    <div className="flex flex-col items-center p-4 overflow-none">
       <div className="my-2">
         <h4 className="text-gray-200 text-sm">
           USD <span className="text-gray-400">ETH</span>
@@ -32,27 +32,24 @@ const BodySection = () => {
         </div>
       </div>
       {/* Friends */}
-      <div className="flex flex-row justify-between rounded-xl border border-1 border-gray-700 w-full text-gray-200 py-2 px-3 my-2 cursor-pointer">
-        <div className="gap-1 flex flex-row">
+      <div className="flex flex-row justify-between rounded-xl border border-1 border-gray-700 w-full text-gray-200 py-2 px-3 my-2 cursor-pointer text-sm">
+        <div className="flex flex-row">
           <div className="h-5 w-5">
             <Image width={100} height={100} src="/images/fire.png" />
           </div>
           <h3>.MC</h3>
         </div>
-        <div className="gap-1 flex flex-row">
-          <h3>#2</h3>
+        <div className="flex flex-row">
           <h3>W</h3>
           <h3>.MC</h3>
         </div>
         <div className="gap-1 flex flex-row">
-          <h3>#3</h3>
           <div className="h-5 w-5">
             <Image width={100} height={100} src="/images/animal.png" />
           </div>
           <h3>PEPE</h3>
         </div>
         <div className="gap-1 flex flex-row">
-          <h3>#4</h3>
           <h3>B</h3>
           <h3>BIAO</h3>
         </div>

@@ -15,6 +15,15 @@ module.exports = {
       colors: {
         customBlack: "#1a1a1a", // Example of a custom black color
       },
+      keyframes: {
+        rotate360: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        rotate360: "rotate360 0.2s linear",
+      },
     },
   },
   plugins: [],

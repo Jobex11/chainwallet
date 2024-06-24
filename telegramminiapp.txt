@@ -1,0 +1,127 @@
+Linking your Next.js project as a Telegram Mini App to a Telegram bot involves several steps. Here’s a detailed guide to achieve this:
+
+### Step 1: Create a Telegram Bot
+
+First, create a Telegram bot using the BotFather:
+
+1. **Create a Bot:**
+   - Open Telegram and search for @BotFather.
+   - Start a chat with BotFather and use the command `/newbot`.
+   - Follow the instructions to set the bot's name and username.
+   - BotFather will give you a token. Save this token as you'll need it to interact with the Telegram API.
+
+### Step 2: Develop Your Next.js Application
+
+1. **Set Up a Next.js Project:**
+
+   If you haven't set up your Next.js project yet, do so:
+
+   ```bash
+   npx create-next-app@latest telegram-mini-app
+   cd telegram-mini-app
+   ```
+
+2. **Create a Simple Page:**
+
+   For demonstration, create a simple page that interacts with Telegram:
+
+   ```jsx
+   // pages/index.js
+   import { useEffect } from 'react';
+
+   const Home = () => {
+     useEffect(() => {
+       if (typeof window !== 'undefined' && window.Telegram.WebApp) {
+         const telegram = window.Telegram.WebApp;
+         telegram.ready();
+       }
+     }, []);
+
+     const sendMessage = () => {
+       if (typeof window !== 'undefined' && window.Telegram.WebApp) {
+         const telegram = window.Telegram.WebApp;
+         telegram.sendData('Hello from the Mini App!');
+       }
+     };
+
+     return (
+       <div>
+         <h1>Hello, Telegram!</h1>
+         <button onClick={sendMessage}>Send Message</button>
+       </div>
+     );
+   };
+
+   export default Home;
+   ```
+
+3. **Include Telegram Web App JavaScript SDK:**
+
+   Add the Telegram Web App SDK to your `_app.js` or directly in your `index.js` file:
+
+   ```jsx
+   // pages/_app.js
+   import { useEffect } from 'react';
+   import '../styles/globals.css';
+
+   function MyApp({ Component, pageProps }) {
+     useEffect(() => {
+       const script = document.createElement('script');
+       script.src = 'https://telegram.org/js/telegram-web-app.js';
+       script.async = true;
+       document.body.appendChild(script);
+     }, []);
+
+     return <Component {...pageProps} />;
+   }
+
+   export default MyApp;
+   ```
+
+### Step 3: Deploy Your Next.js Application
+
+Deploy your Next.js application to a hosting service that supports HTTPS, such as Vercel, Netlify, or any other service of your choice.
+
+1. **Deploy to Vercel:**
+
+   If you use Vercel, you can deploy with a single command:
+
+   ```bash
+   npx vercel
+   ```
+
+   Follow the prompts to deploy your app. Ensure the deployed URL is accessible via HTTPS.
+
+### Step 4: Link Your Mini App to the Telegram Bot
+
+1. **Set the Web App URL for Your Bot:**
+
+   Use the `setChatMenuButton` method to set the URL of your deployed Next.js app. You can do this via the Telegram Bot API.
+
+   ```bash
+   curl -X POST https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setChatMenuButton -d '{
+     "menu_button": {
+       "type": "web_app",
+       "text": "Open Mini App",
+       "web_app": {
+         "url": "https://your-deployed-nextjs-app-url.com"
+       }
+     }
+   }'
+   ```
+
+   Replace `<YOUR_BOT_TOKEN>` with your bot's token and `https://your-deployed-nextjs-app-url.com` with the URL where your Next.js app is hosted.
+
+### Step 5: Test Your Mini App
+
+1. **Open Telegram and Start a Chat with Your Bot:**
+   - Click on the menu button you configured, and it should open your mini app within Telegram.
+   - Interact with the mini app to ensure it works as expected.
+
+### Additional Features
+
+- **Customizing the Web App:** Use the Telegram Web Apps API to customize the appearance and behavior of your mini app within Telegram.
+- **Handling User Data:** Use the data provided by Telegram (e.g., user ID, username) to personalize the mini app experience.
+- **Implementing Backend Logic:** If your mini app requires backend processing (e.g., storing data, handling user sessions), implement the necessary backend logic using your preferred technologies.
+
+By following these steps, you can successfully link your Next.js project as a Telegram Mini App to a Telegram bot. This will allow users to interact with your mini app directly within Telegram.
